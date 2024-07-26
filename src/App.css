@@ -40,17 +40,20 @@
 
 
 .auth-wrapper {
-  /* background-image: url("./react image/aaron-burden-AvqpdLRjABs-unsplash.jpg"); */
+  background-image: url("./component/bus.avif");
   background-size: cover;
   background-position: center;
   padding: 50px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  height: 30rem;
+  display: flex;
+  align-items: center;
 }
 .auth-inner {
   width: 25%;
   margin:  0 auto;
-  border: 1px solid rgb(147, 62, 62);
-  backdrop-filter: blur(5px);
+  border: 1px solid white;
+  backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(5px);
   height: 350px;
   display: flex;
@@ -61,4 +64,266 @@
 }
 .auth-inner input {
   width: 300px;
+}
+.form-control{
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgb(200, 196, 196);
+  height: 25px;
+  margin: 10px;
+}
+.auth-inner{
+  height: 300px;
+}
+.auth-inne{
+  width: 25%;
+  margin:  0 auto;
+  border: 1px solid rgb(133, 131, 131);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  /* height: 350px; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.busform{
+  width: 25%;
+  margin:  0 auto;
+  border: 1px solid rgb(136, 136, 136);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+
+  display: flex;
+  
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.formimg{
+  background-image: url("./component/bus.avif");
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+
+  height: 35rem;
+  display: flex;
+  align-items: center;
+}
+.busform p{
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles for BusPassList component */
+.auth-wrapper {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: #2c3e50;
+}
+
+.auth-inner {
+  
+  background: #34495e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
+  height: 480px;
+  /* overflow-y: auto; */
+}
+
+.title {
+  color: #ecf0f1;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.bus-pass-list {
+  list-style: none;
+  padding: 0;
+  
+}
+
+.bus-pass-item {
+  background: #1abc9c;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bus-pass-info p {
+  color: #ecf0f1;  
+  margin: 5px 0;
+}
+
+.expired-message {
+  color: red;
+  font-weight: bold;
+}
+
+.renew-button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.renew-button:hover {
+  background: #c0392b;
+}
+
+
+
+
+/* 
+
+
+
+
+
+@media (max-width: 425px) {
+  .App {
+    text-align: center;
+  }
+
+  .App-logo {
+    height: 30vmin;
+  }
+
+  .App-header {
+    font-size: calc(8px + 2vmin);
+    padding: 20px;
+  }
+
+  .auth-wrapper {
+    padding: 20px;
+    height: auto;
+  }
+
+  .auth-inner, .auth-inne, .busform {
+    width: 90%;
+    padding: 10px;
+    height: auto;
+  }
+
+  .auth-inner input, .form-control {
+    width: 100%;
+  }
+
+  .formimg {
+    padding: 20px;
+    height: auto;
+  }
+
+  .auth-inner {
+    height: auto;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .bus-pass-item {
+    padding: 10px;
+  }
+
+  .renew-button {
+    padding: 8px 10px;
+  }
+} */
+
+@media (max-width: 425px) {
+  .auth-wrapper {
+    padding: 20px;
+    height: auto;
+  }
+
+  .auth-inner {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .btn-danger {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .auth-inner h3 {
+    font-size: 20px;
+  }
+
+  .auth-inner p {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 425px) {
+  .formimg {
+    flex-direction: column;
+    padding: 20px;
+    height: auto;
+  }
+
+  .busform,
+  .auth-inne {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    padding: 8px;
+  }
+
+  .busform h2, .auth-inne h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .busform p, .auth-inne p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .btn-danger, button {
+    width: 100%;
+    padding: 8px;
+  }
 }

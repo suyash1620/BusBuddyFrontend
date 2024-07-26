@@ -39,7 +39,7 @@ export default function Login() {
         <div className="auth-wrapper">
             <div className="auth-inner">
                 <form onSubmit={handleSubmit}>
-                    <h3 style={{ color: "white" }}>LOGIN</h3>
+                    <h3 style={{ color: "white", textAlign:"center" }}>LOGIN</h3>
                     <br />
 
                     <div className="mb-3">
@@ -59,7 +59,7 @@ export default function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-<p>Don't have an account <span style={{color:"blue" , cursor:"pointer"}}  onClick={() => navigateto("/signup")}>Signup</span></p>
+<p style={{textAlign:"center", color:"white"}}>Don't have an account <span style={{color:"blue" , cursor:"pointer", textAlign:"center"}}  onClick={() => navigateto("/signup")}>Signup</span></p>
                     <div className="d-grid" style={{ display: "flex", alignContent: "center", justifyContent: "center" }}>
                         <button type="submit" className="btn btn-danger" style={{ width: "180px" }}>
                             LOGIN

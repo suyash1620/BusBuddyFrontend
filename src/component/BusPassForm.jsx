@@ -68,10 +68,11 @@ const gotobusspass = useNavigate()
   };
 
   return (
-    <div>
-      <h2>Create Bus Pass</h2>
+    <div style={{ display:"flex", alignItems:"center", justifyContent:"center"}} className='formimg'>
+      <div className='busform'>
+      <h2 style={{color:"white"}}>Create Bus Pass</h2>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label  style={{textAlign:"center", color:"white"}}>
           Name:
           <input
             type="text"
@@ -79,9 +80,11 @@ const gotobusspass = useNavigate()
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            className='form-control'
           />
+          <br />
         </label>
-        <label>
+        <label  style={{textAlign:"center", color:"white"}}>
           Email:
           <input
             type="email"
@@ -89,28 +92,37 @@ const gotobusspass = useNavigate()
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+                className='form-control'
           />
+          <br />
         </label>
         <label>
-          Select Your Pass Validity:
-          <select value={passType} onChange={handlePassTypeChange}>
+     <span style={{textAlign:"center", color:"white", marginLeft:"40px"}}> Select Pass Validity:</span><br /><br /> 
+          <select value={passType} onChange={handlePassTypeChange}style={{marginLeft:"50px", width:"120px", height:"25px", outline:"none", borderRadius:"5px", textAlign:"center"}}>
             <option value="1 month">1 Month</option>
             <option value="3 months">3 Months</option>
             <option value="6 months">6 Months</option>
             <option value="1 year">1 Year</option>
           </select>
         </label>
-        <p>Price= Rs:{price}</p> {/* Display the price */}
-        {!busPass && <RazorpayButton onPaymentSuccess={handlePaymentSuccess} />}
+        <p style={{color:"white"}}>Price= Rs:{price}</p> {/* Display the price */}
+        {!busPass && <RazorpayButton onPaymentSuccess={handlePaymentSuccess}/>}
       </form>
+<br />
+<button onClick={()=>gotobusspass('/list')} >Go to my pass</button> 
 
-      {busPass && (
+      
+    
+      <br /> 
+      </div>
+      <div style={{ width:"330px"}} className='auth-inne'>
+         {busPass && (
         <div>
-          <h3>Bus Pass {isPassValid ? 'Created' : 'Expired'}</h3>
-          <p>Name: {busPass.name}</p>
-          <p>Email: {busPass.email}</p>
-          <p>Pass Type: {busPass.passType}</p>
-          <p>Expiry Date: {new Date(busPass.expiryDate).toLocaleDateString()}</p>
+          <h3 style={{color:"white"}}>Bus Pass {isPassValid ? 'Created' : 'Expired'}</h3>
+          <p style={{color:"white"}}>Name: {busPass.name}</p>
+          <p style={{color:"white"}}>Email: {busPass.email}</p>
+          <p style={{color:"white"}}>Pass Type: {busPass.passType}</p>
+          <p style={{color:"white"}}>Expiry Date: {new Date(busPass.expiryDate).toLocaleDateString()}</p>
           {isPassValid ? (
             <QRCode value={JSON.stringify(busPass)} />
           ) : (
@@ -118,7 +130,8 @@ const gotobusspass = useNavigate()
           )}
         </div>
       )}
-      <button onClick={()=>gotobusspass('/list')}>click</button>
+     
+      </div>
       
     </div>
   );

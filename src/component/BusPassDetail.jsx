@@ -8,7 +8,8 @@ const BusPassDetail = () => {
   const { id } = useParams();
   const [busPass, setBusPass] = useState(null);
   const [passType, setPassType] = useState('1 month');
-const gotobusspass = useNavigate()
+  const navigate = useNavigate();
+
   const fetchBusPass = useCallback(async () => {
     try {
       const response = await axios.get(`http://localhost:1620/busPass/${id}`);
@@ -51,29 +52,44 @@ const gotobusspass = useNavigate()
     }
   };
 
-  return (
-    <div>
-      <h2>Bus Pass Details</h2>
-      <p>Name: {busPass.name}</p>
-      <p>Email: {busPass.email}</p>
-      <p>Pass Type: {busPass.passType}</p>
-      <p>Expiry Date: {new Date(busPass.expiryDate).toLocaleDateString()}</p>
-    
-       Renew pass : <select value={passType} onChange={(e) => setPassType(e.target.value)}>
-        <option value="1 month">1 Month</option>
-        <option value="3 months">3 Months</option>
-        <option value="6 months">6 Months</option>
-        <option value="1 year">1 Year</option>
-      </select>
-     
-      <RazorpayButton onPaymentSuccess={handleRenew} amount={getPassAmount(passType)} />
-<br></br><br></br>
+  const isExpired = new Date(busPass.expiryDate) < new Date();
 
-      <QRCode value={JSON.stringify(busPass)} />
-      <button onClick={()=>gotobusspass('/list')}>click</button>
+  return (
+    <div className='auth-wrapper' style={{ height: "650px" }}>
+      <div className='auth-inner' style={{ height: "600px" }}>
+        <h2 style={{ color: "white" }}>Bus Pass Details</h2>
+        <p style={{ color: "white" }}>Name: {busPass.name}</p>
+        <p style={{ color: "white" }}>Email: {busPass.email}</p>
+        <p style={{ color: "white" }}>Pass Type: {busPass.passType}</p>
+        <p style={{ color: "white" }}>Expiry Date: {new Date(busPass.expiryDate).toLocaleDateString()}</p>
+
+        {isExpired ? (
+          <>
+            <span style={{ color: "white" }}>Renew pass here</span>:
+            <select
+              value={passType}
+              onChange={(e) => setPassType(e.target.value)}
+              style={{ marginLeft: "30px", width: "120px", height: "25px", outline: "none", borderRadius: "5px", textAlign: "center" }}
+            >
+              <option value="1 month">1 Month</option>
+              <option value="3 months">3 Months</option>
+              <option value="6 months">6 Months</option>
+              <option value="1 year">1 Year</option>
+            </select>
+            <span style={{ marginLeft: "-30px" }}>
+              <RazorpayButton onPaymentSuccess={handleRenew} amount={getPassAmount(passType)} />
+            </span>
+          </>
+        ) : (
+          <p style={{ color: "white" }}>Your pass is valid.</p>
+        )}
+
+        <br /><br />
+        <QRCode value={JSON.stringify(busPass)} /><br />
+        <button onClick={() => navigate('/list')}>Go to pass</button>
+      </div>
     </div>
   );
 };
 
 export default BusPassDetail;
-

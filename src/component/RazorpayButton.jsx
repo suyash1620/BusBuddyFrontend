@@ -57,7 +57,7 @@ const RazorpayButton = ({ onPaymentSuccess }) => {
     alert('Payment error');
   };
 
-  return <button id="rzp-button1">Pay</button>;
+  return <button id="rzp-button1" style={{marginLeft:"72px"}}>Pay for pass</button>;
 };
 
 export default RazorpayButton;
